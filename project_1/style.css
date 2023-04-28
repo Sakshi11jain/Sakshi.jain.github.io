@@ -1,0 +1,418 @@
+body{
+  background-image: url("Images/background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(5px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+  }
+  
+  nav img {
+    width: 130px; 
+    height: auto;
+    vertical-align: middle;
+  }
+
+  nav span {
+    cursor: pointer;
+    position: relative;
+    left: 5%;
+    animation: moveleft 1s linear 1;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 10px;
+    padding: 20px;
+    color:white;
+    font-family:serif;
+  }
+  
+  nav li {
+    margin-left: 20px;
+    color:white;
+    text-shadow: 0 0 5px #FF0000, 0 0 5px #0000FF;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+  }
+  
+  nav a:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #ffffff;
+  }
+  
+  main {
+    margin-top: 20px;
+    margin-bottom:20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .container{
+    position:relative;
+  }
+
+  .container_1{
+    position:relative;
+  }
+
+  .container_1 .box{
+    left:15%;
+  }
+
+  .container_1 .box1{
+    left:35%;
+  }
+
+  .container_1ex .box{
+    left:25%;
+  }
+  
+  #Tech, #Mg, #Hr, #Ex {
+    position:relative;
+    z-index:0;
+    display:block;
+    height: 50vh;
+    box-sizing: border-box; 
+    background-size: 50% 50vh;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    margin:10px;
+  }
+
+  #Tech{
+    background-image: url('Images/Technical_image.webp');
+    background-color:  #8093f2;
+  }
+
+  #Mg{
+    background-image: url('Images/Managerial_image.gif');
+    background-color: #CCCCFF;
+  }
+
+  #Hr{
+  background-image: url('Images/HR_image.gif');
+  background-color: #7F766D;
+  }
+
+  #Ex{
+    background-image: url('Images/Example_image.gif');
+    background-color: #6F4E37;
+  }
+
+  #Tech,#Hr{
+    animation: moveleft 3s linear 1;
+  }
+
+  @keyframes moveleft{
+    0%
+    {
+        transform: translate(-100px);
+    }
+    100%{
+        transform: translate(0);
+    }
+  }
+  
+  #Mg, #Ex{
+    background-position: right;
+    animation: moveright 3s linear 1;
+  }
+
+    @keyframes moveright{
+        0%
+        {
+          transform: translate(100px);
+        }
+        100%{
+          transform: translate(0);
+        }
+      }
+
+  #Tech:hover, #Mg:hover, #Hr:hover, #Ex:hover {
+    border: 4px solid black;
+    box-shadow: 0 0 10px white;
+  }
+  
+  /* @media only screen and (min-width: 768px) {
+    #Tech, #Mg, #Hr, #Ex {
+      width: 99%;
+    }
+  } */
+  
+  @font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+  }  
+
+  @font-palette-values --Purples {
+    font-family: Rocher;
+    base-palette: 1;
+  }
+
+  #Tech h2, #Hr h2, #Tech p, #Hr p{
+    position:relative; 
+    padding-left:50%;
+    top: 10%;
+  }
+
+  #Mg h2, #Ex h2, #Mg p, #Ex p{
+    position:relative; 
+    padding-right: 50%;
+    top:10%;
+  } 
+
+  h2 {
+    font-size: 40px;
+    font-family: 'Luckiest Guy';
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow:   0 19px 1px rgba(0,0,0,.1),
+                   0 0 6px rgba(0,0,0,.1),
+                   0 6px 3px rgba(0,0,0,.3),
+                   0 12px 6px rgba(0,0,0,.2),
+                   /* 0 18px 18px rgba(0,0,0,.25),
+                   0 24px 24px rgba(0,0,0,.2), */
+                   0 36px 36px rgba(0,0,0,.15);
+    text-decoration: underline;
+  }
+
+  #Tech p, #Mg p, #Hr p, #Ex p {
+    margin: 20px;
+    font-weight:bolder;
+    font-family:'Times New Roman';
+    color:black;
+    font-size:20px;
+  }
+
+  #Tech a, #Mg a, #Hr a, #Ex a {
+    text-decoration: none;
+  }
+
+  .box {
+    position: absolute;
+    bottom: 50px;
+    left: 85%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 50px;
+    background-color:rgb(208, 207, 207);;
+    border-radius: 25px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    border: 4px solid black;
+    animation: glow 1s ease-in-out 10s 5;
+    animation-iteration-count: 5;
+  }
+  
+  .box1 {
+    position: absolute;
+    bottom: 50px;
+    left: 65%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 50px;
+    background-color:rgb(208, 207, 207);;
+    border-radius: 25px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    border: 4px solid black;
+    animation: glow 1s ease-in-out 10s 5;
+    animation-iteration-count: 5;
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  
+  .box:hover, .box1:hover{
+    border: 5px solid black;
+    box-shadow: 0 0 10px white;
+    background-color: rgb(139, 137, 137);
+  }
+  
+  a .box, a .box1{
+    color:black;
+    font-weight:bold;
+    font-family:'Rocher';
+    font-palette: --Purples;
+    font-size: 22px;
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    }
+    
+  footer p {
+    margin: 0;
+  }
+
+  /* Small devices (phones, 576px and up) */
+@media (min-width: 576px) {
+  nav img {
+    width: 100px;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    margin-left: 10px;
+  }
+  
+  #Tech, #Mg, #Hr, #Ex {
+    height: 30vh;
+  }
+  
+  #Tech h2, #Hr h2, #Tech p, #Hr p{
+    padding-left: 0;
+    top: 0;
+  }
+
+  #Mg h2, #Ex h2, #Mg p, #Ex p{
+    padding-right: 0;
+    top:0;
+  } 
+
+  h2 {
+    font-size: 30px;
+  }
+
+  #Tech p, #Mg p, #Hr p, #Ex p {
+    font-size: 16px;
+  }
+
+  .box, .box1 {
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  nav img {
+    width: 120px;
+  }
+  
+  nav ul {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  nav li {
+    margin-left: 20px;
+  }
+  
+  #Tech, #Mg, #Hr, #Ex {
+    height: 50vh;
+  }
+  
+  #Tech h2, #Hr h2, #Tech p, #Hr p{
+    padding-left: 50%;
+    top: 10%;
+    }
+    
+    #Mg h2, #Ex h2, #Mg p, #Ex p{
+    padding-right: 50%;
+    top:10%;
+    }
+    
+    h2 {
+    font-size: 40px;
+    }
+    
+    #Tech p, #Mg p, #Hr p, #Ex p {
+    font-size: 20px;
+    }
+    
+    .box, .box1 {
+    width: 220px;
+    height: 50px;
+    font-size: 20px;
+    }
+    }
+    
+    /* Large devices (desktops, 992px and up) */
+    /* @media (min-width: 992px) {
+    nav img {
+    width: 130px;
+    }
+    
+    nav ul {
+    margin: 10px;
+    padding: 20px;
+    }
+    
+    nav li {
+    margin-left: 20px;
+    }
+    
+    #Tech, #Mg, #Hr, #Ex {
+    height: 50vh;
+    }
+    
+    #Tech h2, #Hr h2, #Tech p, #Hr p{
+    padding-left: 50%;
+    top: 10%;
+    }
+    
+    #Mg h2, #Ex h2, #Mg p, #Ex p{
+    padding-right: 50%;
+    top:10%;
+    }
+    
+    h2 {
+    font-size: 50px;
+  }
+
+  #Tech p, #Mg p, #Hr p, #Ex p {
+    font-size: 24px;
+  }
+
+  .box, .box1 {
+    width: 220px;
+    height: 50px;
+    font-size: 24px;
+  }
+} */
+

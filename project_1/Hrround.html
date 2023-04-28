@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Round</title>
+    <link rel="stylesheet" href="instyle.css">
+    <nav>
+        <span><a href="index.html"><img src="Images\PracViewLogo.png" alt="PracView Logo"></a></span>
+        <ul>
+            <li><a href="Example.html">Example QnA</a></li>
+            <li><a href = "contact.html">Contact us</a></li>
+            <li><a href = "about.html">About us</a></li>
+            <li><a href = "logout.php">LogOut</a></li>
+            <li></li>
+        </ul>
+    </nav>
+</head>
+<body>
+    <section class="msger">
+        <header class="msger-header">
+          <div class="msger-header-title">
+              HR Round 
+          </div>
+        </header>
+      
+        <main class="msger-chat">
+            <div class="background">
+                <img src="Images/HR.jpg" alt="HR.jpg">
+            </div>
+          <div class="msg left-msg">
+            <div
+             class="msg-img"
+             style="background-image: url(Images/HR.jpg)"
+            ></div>
+      
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">PracView</div>
+              </div>
+      
+              <div class="msg-text">
+                Hi, welcome to PracView HR Round! Go ahead and answer some questions.Type "yes" to start with questions...😄
+              </div>
+            </div>
+          </div>
+          
+        </main>
+      
+        <form class="msger-inputarea">
+          <input type="text" class="msger-input" placeholder="Enter your message...">
+          <button type="submit" class="msger-send-btn">Send</button>
+        </form>
+      </section>
+
+<script>
+  let startTime;
+  let endTime;
+      const msgerForm = get(".msger-inputarea");
+      const msgerInput = get(".msger-input");
+      const msgerChat = get(".msger-chat");
+
+      const BOT_QUESTIONS = [
+				"Can you tell us about yourself?",
+				"Why do you want to work for our company?",
+				"What are your strengths and weaknesses?",
+				"How do you handle conflict in the workplace?",
+				"How do you handle difficult employees or coworkers?",
+				"Can you tell us about a time when you had to implement a new HR policy or program?",
+				"How do you ensure compliance with labor laws and regulations?",
+				"Can you tell us about a time when you had to handle a sensitive employee issue?",
+				"How do you ensure diversity and inclusivity in the workplace?",
+				"How do you handle employee performance issues?",
+				"How do you stay organized and manage your workload?",
+				"Can you tell us about a time when you had to mediate a conflict between two employees?",
+				"How do you prioritize employee engagement and morale?",
+				"How do you approach performance evaluations and feedback?",
+				"Can you tell us about a time when you had to handle a difficult HR issue?"
+      ];
+      const BOT_IMG = "Images/HR.jpg";
+  const PERSON_IMG = "Images/you.jpg";
+  const BOT_NAME = "PracView";
+  const PERSON_NAME = "You";
+
+  msgerForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const msgText = msgerInput.value;
+    if (!msgText) return;
+
+    if (!startTime) {
+      startTime = new Date();
+    }
+
+    appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+    msgerInput.value = "";
+
+    botResponse();
+  });
+
+  function appendMessage(name, img, side, text) {
+    const msgHTML = `
+      <div class="msg ${side}-msg">
+        <div class="msg-img" style="background-image: url(${img})"></div>
+
+        <div class = "msg-bubble">
+          
+          <div class="msg-info">
+            <div class="msg-info-name">${name}</div>
+            <div class="msg-info-time">${formatDate(new Date())}</div>
+          </div>
+
+          <div class="msg-text">
+            ${text}
+          </div>
+        </div>
+      </div>
+    `;
+
+    msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+    msgerChat.scrollTop += 500;
+  }
+
+      
+      let currentQuestionIndex = 0;
+
+      function botResponse() {
+    const delay = (Math.random() * 1000) + 500;
+
+    setTimeout(() => {
+      const response = BOT_QUESTIONS.shift();
+      if (!response) {
+        endTime = new Date();
+        const timeDiff = endTime - startTime;
+        const seconds = Math.floor(timeDiff / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        const timeTaken = `${minutes} minutes and ${remainingSeconds} seconds`;
+        appendMessage(BOT_NAME, BOT_IMG, "left", `You answered all the questions very well! You took ${timeTaken} to complete the Interview.`);
+        return;
+      }
+
+      appendMessage(BOT_NAME, BOT_IMG, "left", response);
+    }, delay);
+
+  }
+
+  function formatDate(date) {
+    const h = "0" + date.getHours();
+    const m = "0" + date.getMinutes();
+
+    return `${h.slice(-2)}:${m.slice(-2)}`;
+  }
+
+  function get(selector, root = document) {
+    return root.querySelector(selector);
+  }
+      // Utils
+      function get(selector, root = document) {
+        return root.querySelector(selector);
+      }
+
+      // function formatDate(date) {
+      //   const h = "0" + date.getHours();
+      //   const m = "0" + date.getMinutes();
+
+      // return `${h.slice(-2)}:${m.slice(-2)}`; 
+      // }
+
+      // function random(min, max) {
+      //   return Math.floor(Math.random() * (max - min) + min);
+      // }
+</script>
+<footer>
+  <p>Copyright © 2023 - PracView</p>
+</footer>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>HR Round</title>
+	<link rel="stylesheet" href="qna.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="qna.js"></script>
+	<script>
+		function autoResizeTextArea(textarea) {
+  textarea.style.height = 'auto';
+  textarea.style.height = textarea.scrollHeight + 'px';
+}
+		var questions = [
+			{
+				question: "1. Can you tell us about yourself?",
+				keywords: ["C","C++","Java","Python","R",","]
+			},
+			{
+				question: "2.Why do you want to work for our company?",
+				keywords: ["stack supports LIFO","queue supports FIFO"]
+			},
+			{
+				question: "3. What are your strengths and weaknesses?",
+				keywords: ["class is a blueprint", "object is an instance"]
+			},
+			{
+				question: "4. How do you handle conflict in the workplace?",
+				keywords: [""]
+			},
+			{
+				question: "5. How do you handle difficult employees or coworkers?",
+				keywords: ["many","forms","different objects","same type of object"]
+			},
+			{
+				question: "6. Can you tell us about a time when you had to implement a new HR policy or program?",
+				keywords: ["improves the speed of data retrieval operations","database"]
+			},
+			
+			{
+				question: "7. How do you ensure compliance with labor laws and regulations?",
+				keywords: [""]
+			},
+			{
+				question: "8. Can you tell us about a time when you had to handle a sensitive employee issue?",
+				keywords: [""]
+			},
+			{
+				question: "9. How do you ensure diversity and inclusivity in the workplace?",
+				keywords: [""]
+			},
+			{
+				question: "10. How do you handle employee performance issues?",
+				keywords: [""]
+			},
+			{
+				question: "11. How do you stay organized and manage your workload?",
+				keywords: [""]
+			},
+			
+			{
+				question: "12. Can you tell us about a time when you had to mediate a conflict between two employees?",
+				keywords: [""]
+			},
+			{
+				question: "13. How do you prioritize employee engagement and morale?",
+				keywords: [""]
+			},
+			{
+				question: "14. How do you approach performance evaluations and feedback?",
+				keywords: [""]
+			},
+			{
+				question: "15. Can you tell us about a time when you had to handle a difficult HR issue?",
+				keywords: [""]
+			}
+		];
+	</script>
+</head>
+<body>
+	<div class="background">
+		<img style="height: 780px;" src="Images/HR.jpg" alt="Hr.jpg">
+	</div>
+	<nav>
+        <span><a href="index.html"><img src="Images\PracViewLogo.png" alt="PracView Logo"></a></span>
+		<ul>
+            <li><a href="Example.html">Example QnA</a></li>
+			<li><a href = "contact.html">Contact us</a></li>
+            <li><a href = "about.html">About us</a></li>
+            <li></li>
+        </ul>
+    </nav>
+	<div id="questionnaire">
+		<h1>HR Round Questions</h1>
+		<h3>Please press enter to submit your answer and click on the next button for next question...</h3>
+		<p id="question"></p>
+		<textarea id="answer" name="message" oninput="autoResizeTextArea(this)" style="overflow:hidden"></textarea>
+		<p id="feedback"></p>
+		<button id="next">Next</button>
+	</div>
+	<div id="thanks" style="display: none;">
+		<h1>Great you completed the Technical Round Mock Interview. If You are unable to give answers properly, Please refer to the Example Question and answer section which help you in practice more.</h1>
+		<h1>Thankyou!!!</h1>
+	</div>
+</body>
+</html> -->
